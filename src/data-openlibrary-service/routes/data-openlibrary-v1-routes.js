@@ -1,6 +1,6 @@
 /**
- * @name data-v1-api
- * @description This module packages the Data API.
+ * @name data-openlibrary-v1-api
+ * @description This module packages the Data-openlibrary API.
  */
 'use strict';
 

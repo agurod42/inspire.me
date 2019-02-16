@@ -1,11 +1,11 @@
 {
-  "name": "data-service",
+  "name": "data-openlibrary-service",
   "version": "0.0.1",
   "author": "agurodriguez <me@agurodriguez.net>",
   "private": true,
   "scripts": {
-    "start": "node data-service.js",
-    "debug": "node-debug data-service.js --debug-brk",
+    "start": "node data-openlibrary-service.js",
+    "debug": "node-debug data-openlibrary-service.js --debug-brk",
     "test": "mocha specs --reporter spec",
     "docker": "node scripts/docker.js"
   },

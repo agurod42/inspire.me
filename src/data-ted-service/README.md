@@ -1,4 +1,4 @@
-# data-service
+# data-ted-service
 
 
 
@@ -10,7 +10,7 @@ The project includes an .nvmrc which specifies NodeJS 6.2.1
 ## Installation
 
 ```javascript
-$ cd data-service
+$ cd data-ted-service
 $ nvm use
 ```
 

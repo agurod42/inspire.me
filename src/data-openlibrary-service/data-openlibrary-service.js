@@ -1,6 +1,6 @@
 /**
-* @name Data
-* @summary Data Hydra Express service entry point
+* @name Data-openlibrary
+* @summary Data-openlibrary Hydra Express service entry point
 * @description 
 */
 'use strict';
@@ -20,7 +20,7 @@ config.init('./config/config.json')
     config.version = version;
     return hydraExpress.init(config.getObject(), version, () => {
       hydraExpress.registerRoutes({
-        '/v1/data': require('./routes/data-v1-routes')
+        '/v1/data-openlibrary': require('./routes/data-openlibrary-v1-routes')
       });
     });
   })

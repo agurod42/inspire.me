@@ -1,29 +1,65 @@
 version: '3'
 services:
 
-  data_service:
-    container_name: ime_data_service
+  data_coursera_service:
+    container_name: ime_data_coursera_service
     image: node:10
+    command: npm start
+    depends_on:
+      - redis
     ports:
-      - 8080:8081
+      - 8180:8081
     volumes:
-      - ./src/data-service:/home/node/app
+      - ./src/data-coursera-service:/home/node/app
+    working_dir: /home/node/app
+
+  data_openlibrary_service:
+    container_name: ime_data_openlibrary_service
+    image: node:10
+    command: npm start
+    depends_on:
+      - redis
+    ports:
+      - 8181:8081
+    volumes:
+      - ./src/data-openlibrary-service:/home/node/app
+    working_dir: /home/node/app
+
+  data_ted_service:
+    container_name: ime_data_ted_service
+    image: node:10
+    command: npm start
+    depends_on:
+      - redis
+    ports:
+      - 8182:8081
+    volumes:
+      - ./src/data-ted-service:/home/node/app
+    working_dir: /home/node/app
 
   torre_service:
     container_name: ime_torre_service
     image: node:10
+    command: npm start
+    depends_on:
+      - redis
     ports:
-      - 8081:8081
+      - 8090:8081
     volumes:
       - ./src/torre-service:/home/node/app
+    working_dir: /home/node/app
 
   suggestion_service:
     container_name: ime_suggestion_service
     image: node:10
+    command: npm start
+    depends_on:
+      - redis
     ports:
-      - 8082:8081
+      - 8091:8081
     volumes:
       - ./src/suggestion-service:/home/node/app
+    working_dir: /home/node/app
 
   redis:
     container_name: ime_redis

@@ -1,10 +1,10 @@
 {
   "environment": "development",
   "hydra": {
-    "serviceName": "data-service",
+    "serviceName": "data-openlibrary-service",
     "serviceIP": "",
     "servicePort": 8081,
-    "serviceType": "data",
+    "serviceType": "data-openlibrary",
     "serviceDescription": "",
     "redis": {
       "url": "127.0.0.1",
