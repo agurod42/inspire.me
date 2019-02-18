@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "install": "ls src/ | xargs -I {} bash -c \"cd 'src/{}' && npm install\"",
+    "postinstall": "rsync -a -v --ignore-existing .env.sample .env",
     "ssh": "ssh -i ~/.ssh/aws.pem ec2-user@ec2-54-209-252-217.compute-1.amazonaws.com",
     "start": "docker-compose up",
     "test": "./node_modules/.bin/newman run ./test/inspire.me.postman_collection.json --color auto --disable-unicode --global-var \"inspire-me-url=http://localhost\""

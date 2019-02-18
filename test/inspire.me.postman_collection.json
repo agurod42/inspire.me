@@ -153,6 +153,100 @@
 			]
 		},
 		{
+			"name": "data-ted-service",
+			"item": [
+				{
+					"name": "talks - Ok",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b7ce409-73d2-49dc-8df9-61c7c50b967c",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"   pm.response.to.have.status(200);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.have.property('result');",
+									"   pm.expect(res.result).to.be.an('array');",
+									"   pm.expect(res.result[0]).to.have.property('talk_url');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{inspire-me-url}}:8182/v1/data?subject=Data",
+							"host": [
+								"{{inspire-me-url}}"
+							],
+							"port": "8182",
+							"path": [
+								"v1",
+								"data"
+							],
+							"query": [
+								{
+									"key": "subject",
+									"value": "Data"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "talks - Err",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b7ce409-73d2-49dc-8df9-61c7c50b967c",
+								"exec": [
+									"pm.test(\"response is an error\", function () {",
+									"   pm.response.to.have.status(500);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.to.have.property('result');",
+									"   pm.expect(res.result).to.to.have.property('error');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{inspire-me-url}}:8182/v1/data",
+							"host": [
+								"{{inspire-me-url}}"
+							],
+							"port": "8182",
+							"path": [
+								"v1",
+								"data"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "torre-service",
 			"item": [
 				{

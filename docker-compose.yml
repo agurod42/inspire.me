@@ -33,6 +33,8 @@ services:
     command: ./node_modules/.bin/nodemon start
     depends_on:
       - redis
+    env_file:
+      - .env
     ports:
       - 8182:8081
     restart: always
