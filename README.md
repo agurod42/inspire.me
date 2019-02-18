@@ -12,9 +12,11 @@ npm start
 
 ### Architecture
 
-<!-- TODO: Update this diagram! -->
-![](docs/architecture.png)
-<sup>Components diagram (Second draft)</sup>
+<p align="center">
+    <img width="70%" src="docs/architecture.png" />
+    <br />
+    <sup>Components diagram (Second draft)</sup>
+</p>
 
 ### Tests
 
