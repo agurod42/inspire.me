@@ -19,9 +19,11 @@ module.exports = class InspirerServiceController {
             const dataProviderService = this.dataProviderServices[ks[i]];
             for (var j = 0; j < subjects.length; j++) {
                 try {
-                    const res = await axios.get(`http://${dataProviderService.ip}:${dataProviderService.port}/v1/data?subject=${subjects[j]}`);
-                    if (res.data.result.length) {
-                        result[ks[i]] = [...(result[ks[i]] || []), ...res.data.result];
+                    if (subjects[j] && subjects[j].length) {
+                        const res = await axios.get(`http://${dataProviderService.ip}:${dataProviderService.port}/v1/data?subject=${subjects[j]}`);
+                        if (res.data.result.length) {
+                            result[ks[i]] = [...(result[ks[i]] || []), ...res.data.result];
+                        }
                     }
                 }
                 catch (err) {

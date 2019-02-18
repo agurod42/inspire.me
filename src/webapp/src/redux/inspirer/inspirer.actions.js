@@ -7,10 +7,16 @@ export const ACTIONS = {
 };
 
 export function inspireMe(torreBio) {
+    let subjects = [
+        ...torreBio.education.map(e => e.name).join(' ').split(' '),
+        ...torreBio.jobs.map(j => j.role).join(' ').split(' '),
+        ...torreBio.person.professionalHeadline.split(' '),
+        ...torreBio.strengths.map(s => s.name).join(' ').split(' ')
+    ];
+
     return async (dispatch) => {
         dispatch({ type: ACTIONS.INSPIRE_ME });
         try {
-            const subjects = ['software'];
             const res = await axios.get(`${process.env.API_URL}:8091/v1/inspire-me?subjects=${subjects.join(',')}`);
             dispatch({ type: ACTIONS.INSPIRE_ME_SUCCESS, payload: res.data.result });
         }
