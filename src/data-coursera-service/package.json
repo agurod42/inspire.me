@@ -17,7 +17,7 @@
     "fwsp-server-response": "2.2.6",
     "hydra": "^1.7.0",
     "hydra-express": "1.7.0",
-    "scrape-it": "^5.1.4"
+    "x-ray": "^2.3.3"
   },
   "devDependencies": {
     "chai": "3.5.0",

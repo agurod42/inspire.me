@@ -1,4 +1,4 @@
-const scrapeIt = require('scrape-it');
+const xray = require('x-ray')();
 
 module.exports = class DataCourseraServiceController {
 
@@ -26,36 +26,19 @@ module.exports = class DataCourseraServiceController {
             ];
             const queryUrl = encodeURI(`${this.coursesPageUrl}?${queryParams.join('&')}`);
 
-            const pageCountRes = await scrapeIt(queryUrl, { 
-                nav: { 
-                    listItem: '[aria-label="Pagination Controls"] ul li', data: { n: 'button' } 
-                } 
-            });
-
+            const pageCountRes = await this.scrapCoursesNav(queryUrl);
+            
             // If there is no paginator then there are no results
-            if (!pageCountRes.data.nav[pageCountRes.data.nav.length - 2]) {
+            if (!pageCountRes[pageCountRes.length - 2]) {
                 return [];
             }
 
-            const pageCount = pageCountRes.data.nav[pageCountRes.data.nav.length - 2].n;
+            const pageCount = pageCountRes[pageCountRes.length - 2].n;
 
             // Scrap no more than 10 pages at a time
             for (var i = 1; i <= Math.min(pageCount, 10); i++) {
-                const partialQueryRes = await scrapeIt(`${queryUrl}&indices[test_all_products][page]=${i}`, {
-                    courses: {
-                        listItem: '.ais-InfiniteHits-item',
-                        data: {
-                            url: {
-                                selector: '.rc-DesktopSearchCard',
-                                attr: 'href',
-                                convert: (v) => `https://en.coursera.org/courses${v}`
-                            },
-                            title: '.card-title',
-                            partnerName: '.partner-name',
-                        }
-                    }
-                });
-                courses = courses.concat(partialQueryRes.data.courses);
+                const partialQueryRes = await this.scrapCoursesPage(`${queryUrl}&indices[test_all_products][page]=${i}`);
+                courses = courses.concat(partialQueryRes);
             }
 
             return courses;
@@ -63,6 +46,24 @@ module.exports = class DataCourseraServiceController {
         catch (err) {
             throw new Error(err.response ? err.response.data.message : err);
         }
+    }
+
+    async scrapCoursesNav(queryUrl) {
+        const s = '[aria-label="Pagination Controls"] ul li';
+        const o = [{
+            n: 'button',
+        }];
+        return await (xray(queryUrl, s, o).then(res => res).catch(console.log));
+    }
+
+    async scrapCoursesPage(queryUrl) {
+        const s = '.ais-InfiniteHits-item';
+        const o = [{
+            url: '.rc-DesktopSearchCard@href',
+            title: '.card-title',
+            partnerName: '.partner-name',
+        }];
+        return await (xray(queryUrl, s, o).then(res => res).catch(console.log));
     }
 
 }
