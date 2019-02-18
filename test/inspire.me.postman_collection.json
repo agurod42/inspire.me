@@ -38,11 +38,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{data-coursera-service-url}}/data?skills=Data Analysis",
+							"raw": "{{inspire-me-url}}:8180/v1/data?skills=Data Analysis",
 							"host": [
-								"{{data-coursera-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8180",
 							"path": [
+								"v1",
 								"data"
 							],
 							"query": [
@@ -98,11 +100,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/bio?username=agurodriguez",
+							"raw": "{{inspire-me-url}}:8090/v1/bio?username=agurodriguez",
 							"host": [
-								"{{torre-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8090",
 							"path": [
+								"v1",
 								"bio"
 							],
 							"query": [
@@ -143,11 +147,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/bio",
+							"raw": "{{inspire-me-url}}:8090/v1/bio",
 							"host": [
-								"{{torre-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8090",
 							"path": [
+								"v1",
 								"bio"
 							]
 						}
@@ -182,11 +188,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/bio?username=$ThisUsernameProbablyDoesntExists",
+							"raw": "{{inspire-me-url}}:8090/v1/bio?username=$ThisUsernameProbablyDoesntExists",
 							"host": [
-								"{{torre-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8090",
 							"path": [
+								"v1",
 								"bio"
 							],
 							"query": [
@@ -229,11 +237,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/connections?username=agurodriguez",
+							"raw": "{{inspire-me-url}}:8090/v1/connections?username=agurodriguez",
 							"host": [
-								"{{torre-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8090",
 							"path": [
+								"v1",
 								"connections"
 							],
 							"query": [
@@ -274,11 +284,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/connections",
+							"raw": "{{inspire-me-url}}:8090/v1/connections",
 							"host": [
-								"{{torre-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8090",
 							"path": [
+								"v1",
 								"connections"
 							]
 						}
@@ -313,11 +325,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/connections?username=$ThisUsernameProbablyDoesntExists",
+							"raw": "{{inspire-me-url}}:8090/v1/connections?username=$ThisUsernameProbablyDoesntExists",
 							"host": [
-								"{{torre-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8090",
 							"path": [
+								"v1",
 								"connections"
 							],
 							"query": [
@@ -359,11 +373,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/people",
+							"raw": "{{inspire-me-url}}:8090/v1/people",
 							"host": [
-								"{{torre-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8090",
 							"path": [
+								"v1",
 								"people"
 							]
 						}
@@ -399,11 +415,13 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/people?q=Torrenegra",
+							"raw": "{{inspire-me-url}}:8090/v1/people?q=Torrenegra",
 							"host": [
-								"{{torre-service-url}}"
+								"{{inspire-me-url}}"
 							],
+							"port": "8090",
 							"path": [
+								"v1",
 								"people"
 							],
 							"query": [

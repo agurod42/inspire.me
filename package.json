@@ -6,7 +6,7 @@
     "install": "ls src/ | xargs -I {} bash -c \"cd 'src/{}' && npm install\"",
     "ssh": "ssh -i ~/.ssh/aws.pem ec2-user@ec2-54-209-252-217.compute-1.amazonaws.com",
     "start": "docker-compose up",
-    "test": "./node_modules/.bin/newman run ./test/inspire.me.postman_collection.json --color auto --disable-unicode --global-var \"torre-service-url=http://ec2-54-209-252-217.compute-1.amazonaws.com:8090/v1\""
+    "test": "./node_modules/.bin/newman run ./test/inspire.me.postman_collection.json --color auto --disable-unicode --global-var \"inspire-me-url=http://localhost\""
   },
   "repository": {
     "type": "git",
