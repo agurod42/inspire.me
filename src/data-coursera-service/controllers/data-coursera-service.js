@@ -62,6 +62,7 @@ module.exports = class DataCourseraServiceController {
             url: '.rc-DesktopSearchCard@href',
             title: '.card-title',
             partnerName: '.partner-name',
+            imageUrl: '.product-photo@src'
         }];
         return await (xray(queryUrl, s, o).then(res => res).catch(console.log));
     }

@@ -1,4 +1,4 @@
-import { Input } from 'antd';
+import { Icon, Input } from 'antd';
 import React from 'react';
 import { reduxForm, Field } from 'redux-form';
 
@@ -14,7 +14,7 @@ class TorreSearchForm extends React.Component {
   }
 
   renderInput(props) {
-    return <Input placeholder='Search Torre Bio' {...props.input} />;
+    return <Input addonAfter={<Icon type='search' />} placeholder='Search Torre Bio' {...props.input} />;
   }
 
 }

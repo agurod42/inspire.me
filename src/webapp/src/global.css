@@ -8,6 +8,15 @@ body {
   margin: 0;
 }
 
+#root {
+  display: flex;
+}
+
 #root > .ant-layout > .ant-layout-content {
   padding: 48px;
+}
+
+.data-openlibrary-service-avatar,
+.data-openlibrary-service-avatar img {
+  height: auto !important;
 }
