@@ -4,7 +4,7 @@ services:
   data_coursera_service:
     container_name: ime_data_coursera_service
     image: node:10
-    command: npm start
+    command: ./node_modules/.bin/nodemon start
     depends_on:
       - redis
     ports:
@@ -17,7 +17,7 @@ services:
   data_openlibrary_service:
     container_name: ime_data_openlibrary_service
     image: node:10
-    command: npm start
+    command: ./node_modules/.bin/nodemon start
     depends_on:
       - redis
     ports:
@@ -30,7 +30,7 @@ services:
   data_ted_service:
     container_name: ime_data_ted_service
     image: node:10
-    command: npm start
+    command: ./node_modules/.bin/nodemon start
     depends_on:
       - redis
     ports:
@@ -43,7 +43,7 @@ services:
   torre_service:
     container_name: ime_torre_service
     image: node:10
-    command: npm start
+    command: ./node_modules/.bin/nodemon start
     depends_on:
       - redis
     ports:
@@ -56,7 +56,7 @@ services:
   suggestion_service:
     container_name: ime_suggestion_service
     image: node:10
-    command: npm start
+    command: ./node_modules/.bin/nodemon start
     depends_on:
       - redis
     ports:

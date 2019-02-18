@@ -14,13 +14,15 @@
   },
   "dependencies": {
     "fwsp-config": "1.1.5",
+    "fwsp-server-response": "2.2.6",
     "hydra-express": "1.7.0",
-    "fwsp-server-response": "2.2.6"
+    "scrape-it": "^5.1.4"
   },
   "devDependencies": {
     "chai": "3.5.0",
     "eslint": "3.16.0",
     "mocha": "3.2.0",
+    "nodemon": "^1.18.10",
     "superagent": "3.5.2"
   }
 }
