@@ -9,7 +9,7 @@
 <p align="center">
     <img width="70%" src="docs/architecture.png" />
     <br />
-    <sup>Components diagram (Second draft)</sup>
+    <sup>Components diagram</sup>
 </p>
 
 ### Tests
