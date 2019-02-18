@@ -1,6 +1,6 @@
 /**
-* @name Suggestion
-* @summary Suggestion Hydra Express service entry point
+* @name Inspirer
+* @summary Inspirer Hydra Express service entry point
 * @description 
 */
 'use strict';
@@ -20,7 +20,7 @@ config.init('./config/config.json')
     config.version = version;
     return hydraExpress.init(config.getObject(), version, () => {
       hydraExpress.registerRoutes({
-        '/v1/suggestion': require('./routes/suggestion-v1-routes')
+        '/v1/inspirer': require('./routes/inspirer-v1-routes')
       });
     });
   })

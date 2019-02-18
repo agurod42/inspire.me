@@ -1,6 +1,6 @@
 /**
- * @name suggestion-v1-api
- * @description This module packages the Suggestion API.
+ * @name inspirer-v1-api
+ * @description This module packages the Inspirer API.
  */
 'use strict';
 

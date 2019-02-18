@@ -1,11 +1,11 @@
 {
-  "name": "suggestion-service",
+  "name": "inspirer-service",
   "version": "0.0.1",
   "author": "agurodriguez <me@agurodriguez.net>",
   "private": true,
   "scripts": {
-    "start": "node suggestion-service.js",
-    "debug": "node-debug suggestion-service.js --debug-brk",
+    "start": "node inspirer-service.js",
+    "debug": "node-debug inspirer-service.js --debug-brk",
     "test": "mocha specs --reporter spec",
     "docker": "node scripts/docker.js"
   },

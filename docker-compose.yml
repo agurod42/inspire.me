@@ -42,6 +42,19 @@ services:
       - ./src/data-ted-service:/home/node/app
     working_dir: /home/node/app
 
+  inspirer_service:
+    container_name: ime_inspirer_service
+    image: node:10
+    command: ./node_modules/.bin/nodemon start
+    depends_on:
+      - redis
+    ports:
+      - 8091:8081
+    restart: always
+    volumes:
+      - ./src/inspirer-service:/home/node/app
+    working_dir: /home/node/app
+
   torre_service:
     container_name: ime_torre_service
     image: node:10
@@ -55,19 +68,6 @@ services:
       - ./src/torre-service:/home/node/app
     working_dir: /home/node/app
 
-  suggestion_service:
-    container_name: ime_suggestion_service
-    image: node:10
-    command: ./node_modules/.bin/nodemon start
-    depends_on:
-      - redis
-    ports:
-      - 8091:8081
-    restart: always
-    volumes:
-      - ./src/suggestion-service:/home/node/app
-    working_dir: /home/node/app
-
   redis:
     container_name: ime_redis
     image: redis:latest
@@ -76,14 +76,3 @@ services:
     restart: always
     volumes:
       - ./data/redis:/data
-
-  # postgres:
-  #   container_name: fys_postgres
-  #   image: postgres
-  #   environment:
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=postgres
-  #   ports:
-  #     - 5438:5432
-  #   volumes:
-  #     - ./data:/var/lib/postgresql/data

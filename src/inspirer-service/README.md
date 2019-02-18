@@ -1,4 +1,4 @@
-# suggestion-service
+# inspirer-service
 
 
 
@@ -10,7 +10,7 @@ The project includes an .nvmrc which specifies NodeJS 6.2.1
 ## Installation
 
 ```javascript
-$ cd suggestion-service
+$ cd inspirer-service
 $ nvm use
 ```
 

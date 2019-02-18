@@ -1,10 +1,10 @@
 {
   "environment": "development",
   "hydra": {
-    "serviceName": "suggestion-service",
+    "serviceName": "inspirer-service",
     "serviceIP": "",
     "servicePort": 8081,
-    "serviceType": "suggestion",
+    "serviceType": "inspirer",
     "serviceDescription": "",
     "redis": {
       "url": "127.0.0.1",
