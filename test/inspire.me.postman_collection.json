@@ -690,7 +690,8 @@
 									"   const res = pm.response.json();",
 									"   pm.expect(res).to.have.property('result');",
 									"   pm.expect(res.result).to.be.an('array');",
-									"   pm.expect(res.result[0]).to.have.property('publicId', 'torrenegra');",
+									"   pm.expect(res.result[0]).to.have.property('person');",
+									"   pm.expect(res.result[0].person).to.have.property('publicId', 'torrenegra');",
 									"});"
 								],
 								"type": "text/javascript"
