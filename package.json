@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "scripts": {
+    "install": "ls src/ | xargs -I {} bash -c \"cd 'src/{}' && npm install\"",
     "ssh": "ssh -i ~/.ssh/aws.pem ec2-user@ec2-54-209-252-217.compute-1.amazonaws.com",
     "start": "docker-compose up",
     "test": "./node_modules/.bin/mocha src"
