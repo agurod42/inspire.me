@@ -30,7 +30,7 @@ class IndexPage extends React.Component {
               <List.Item>
                 <List.Item.Meta
                   avatar={<Avatar src={item.person.picture} />}
-                  title={<a href="https://ant.design">{item.person.name}</a>}
+                  title={<a href={`https://torre.bio/${item.person.publicId}`} rel='noopener noreferrer' target='_blank'>{item.person.name}</a>}
                   description={item.person.professionalHeadline}
                 />
                 <Button icon='bulb' onClick={() => this.props.inspireMe(this.props.torreBio)}>Get inspired</Button>
@@ -58,7 +58,6 @@ class IndexPage extends React.Component {
   }
 
   renderItem(dataProvider, item) {
-    console.log(item);
     switch (dataProvider) {
       case 'data-coursera-service':
         return (
