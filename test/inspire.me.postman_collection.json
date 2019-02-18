@@ -21,9 +21,8 @@
 									"   pm.response.to.be.json;",
 									"   const res = pm.response.json();",
 									"   pm.expect(res).to.have.property('result');",
-									"   pm.expect(res.result).to.have.property('courses');",
-									"   pm.expect(res.result.courses).to.be.an('array');",
-									"   pm.expect(res.result.courses[0]).to.have.property('title');",
+									"   pm.expect(res.result).to.be.an('array');",
+									"   pm.expect(res.result[0]).to.have.property('title');",
 									"});"
 								],
 								"type": "text/javascript"
