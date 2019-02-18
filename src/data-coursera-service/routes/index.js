@@ -26,7 +26,7 @@ api.get('/data', async (req, res) => {
   }
   
   try {
-    res.sendOk(await controller.courses((req.query.subject || '').split(',')));
+    res.sendOk(await controller.courses(req.query.subject));
   }
   catch (err) {
     res.sendError(err.message);

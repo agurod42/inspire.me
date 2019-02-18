@@ -13,6 +13,7 @@
     "node": ">=6.2.1"
   },
   "dependencies": {
+    "fuse.js": "^3.4.2",
     "fwsp-config": "1.1.5",
     "fwsp-server-response": "2.2.6",
     "hydra": "^1.7.0",

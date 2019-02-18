@@ -1,9 +1,15 @@
+const Fuse = require('fuse.js');
 const xray = require('x-ray')();
 
 module.exports = class DataCourseraServiceController {
 
     constructor() {
         this.coursesPageUrl = 'https://en.coursera.org/courses';
+        this.fuse = new Fuse(require('../data/subjects.json'), {
+            keys: ['name'],
+            shouldSort: true,
+            threshold: 0.7,
+        });
     }
 
     /**
@@ -18,11 +24,12 @@ module.exports = class DataCourseraServiceController {
     async courses(subject) {
         try {
             let courses = [];
-
+            let mostSimilarSubject = this.fuse.search(subject, { limit: 1 });
+            
             const queryParams = [
                 'query=free courses',
                 'indices[test_all_products][refinementList][language][0]=English',
-                `indices[test_all_products][refinementList][skills][0]=${subject}`
+                `indices[test_all_products][refinementList][skills][0]=${mostSimilarSubject[0].name}`
             ];
             const queryUrl = encodeURI(`${this.coursesPageUrl}?${queryParams.join('&')}`);
 
