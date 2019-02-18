@@ -1,0 +1,15 @@
+{
+  "environment": "development",
+  "hydra": {
+    "serviceName": "data-ted-service",
+    "serviceIP": "",
+    "servicePort": 8081,
+    "serviceType": "data-ted",
+    "serviceDescription": "",
+    "redis": {
+      "url": "redis",
+      "port": 6379,
+      "db": 0
+    }
+  }
+}
