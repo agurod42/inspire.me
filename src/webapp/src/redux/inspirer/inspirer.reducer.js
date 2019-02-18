@@ -4,7 +4,7 @@ export default function (state = {}, action) {
     switch (action.type) {
         
         case ACTIONS.INSPIRE_ME: {
-            return { ...state, loading: true }
+            return { ...state, loading: true, inspireMeSubjects: action.payload }
         }
         
         case ACTIONS.INSPIRE_ME_SUCCESS: {

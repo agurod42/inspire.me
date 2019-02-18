@@ -14,8 +14,12 @@ export function inspireMe(torreBio) {
         ...torreBio.strengths.map(s => s.name).join(' ').split(' ')
     ];
 
+    subjects = subjects.filter((subject, pos) => {
+        return subject.length > 4 && subjects.indexOf(subject) === pos;
+    });
+
     return async (dispatch) => {
-        dispatch({ type: ACTIONS.INSPIRE_ME });
+        dispatch({ type: ACTIONS.INSPIRE_ME, payload: subjects });
         try {
             const res = await axios.get(`${process.env.API_URL}:8091/v1/inspire-me?subjects=${subjects.join(',')}`);
             dispatch({ type: ACTIONS.INSPIRE_ME_SUCCESS, payload: res.data.result });

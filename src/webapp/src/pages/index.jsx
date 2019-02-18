@@ -10,6 +10,7 @@ import { people } from '@/redux/torre/torre.actions';
 const mapStateToProps = ({ inspirerReducer, torreReducer }) => ({
   inspireMeLoading: inspirerReducer.loading,
   inspireMeRes: inspirerReducer.inspireMeRes,
+  inspireMeSubjects: inspirerReducer.inspireMeSubjects,
   torrePeople: torreReducer.torrePeople,
   torreLoading: torreReducer.loading,
 });
@@ -49,6 +50,7 @@ class IndexPage extends React.Component {
             <div>
               <List loading />
               <p align='center'>We are looking for books, courses and videos you may like. This may take a few seconds.</p>
+              <p align='center'>Subjects: {this.props.inspireMeSubjects.join(', ')}</p>
             </div>
           }
           {Object.keys(this.props.inspireMeRes || {}).map(dataProvider => 
