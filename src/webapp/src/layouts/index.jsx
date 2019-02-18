@@ -10,7 +10,9 @@ export default class extends React.Component {
       <Provider store={appStore}>
         <Layout>
           <Layout.Header>
-            {/* <img src={require('./assets/logo.png')} /> */}
+            <p align='center'>
+              <img height={64} src={require('@/assets/logo.png')} />
+            </p>
           </Layout.Header>
           <Layout.Content>
             { this.props.children }

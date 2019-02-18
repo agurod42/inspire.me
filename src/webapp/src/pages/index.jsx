@@ -20,7 +20,8 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Flex>
-        <Box w={1/3}>
+        <Box flex column w={1/3} align='center'>
+          <img src={require('@/assets/torre.png')} />
           <TorreSearchForm onSubmit={form => this.props.bio(form.username)} />
           <List
             dataSource={this.props.torreBio ? [this.props.torreBio] : []}
@@ -33,14 +34,22 @@ class IndexPage extends React.Component {
                   title={<a href={`https://torre.bio/${item.person.publicId}`} rel='noopener noreferrer' target='_blank'>{item.person.name}</a>}
                   description={item.person.professionalHeadline}
                 />
-                <Button icon='bulb' onClick={() => this.props.inspireMe(this.props.torreBio)}>Get inspired</Button>
+                <Button disabled={this.props.inspireMeLoading} icon='bulb' onClick={() => this.props.inspireMe(this.props.torreBio)}>Get inspired</Button>
               </List.Item>
             )}
           />
         </Box>
         <Box px={24} w={2/3}>
+          {!this.props.inspireMeRes && !this.props.inspireMeLoading && 
+            <p align='center'>
+              To get started search for a Torre Bio profile in the input at the left
+            </p>
+          }
           {!this.props.inspireMeRes && this.props.inspireMeLoading && 
-            <List loading />
+            <div>
+              <List loading />
+              <p align='center'>We are looking for books, courses and videos you may like. This may take a few seconds.</p>
+            </div>
           }
           {Object.keys(this.props.inspireMeRes || {}).map(dataProvider => 
             <Card key={dataProvider} title={<span><Icon type={DATA_PROVIDERS[dataProvider].icon} /> {DATA_PROVIDERS[dataProvider].type} (by {DATA_PROVIDERS[dataProvider].title})</span>} style={{ marginBottom: 24 }}>

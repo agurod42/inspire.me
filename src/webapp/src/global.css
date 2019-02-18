@@ -16,6 +16,15 @@ body {
   padding: 48px;
 }
 
+form {
+  margin: 24px 0;
+  width: 100%;
+}
+
+form + .ant-list {
+  width: 100%;
+}
+
 .data-openlibrary-service-avatar,
 .data-openlibrary-service-avatar img {
   height: auto !important;
