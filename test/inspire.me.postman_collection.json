@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "d97e9ac9-2461-4550-9ebd-1433fe8ed257",
+		"name": "inspire.me",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "torre-service",
+			"item": [
+				{
+					"name": "bio - Ok",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"   pm.response.to.have.status(200);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.have.property('result');",
+									"   pm.expect(res.result).to.have.property('person');",
+									"   pm.expect(res.result).to.have.property('stats');",
+									"   pm.expect(res.result).to.have.property('strengths');",
+									"   pm.expect(res.result).to.have.property('aspirations');",
+									"   pm.expect(res.result).to.have.property('experiences');",
+									"   pm.expect(res.result).to.have.property('achievements');",
+									"   pm.expect(res.result).to.have.property('jobs');",
+									"   pm.expect(res.result).to.have.property('projects');",
+									"   pm.expect(res.result).to.have.property('publications');",
+									"   pm.expect(res.result).to.have.property('education');",
+									"   pm.expect(res.result).to.have.property('opportunities');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{torre-service-url}}/bio?username=agurodriguez",
+							"host": [
+								"{{torre-service-url}}"
+							],
+							"path": [
+								"bio"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "agurodriguez"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bio - Err",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is an error\", function () {",
+									"   pm.response.to.have.status(500);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.to.have.property('result');",
+									"   pm.expect(res.result).to.to.have.property('error');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{torre-service-url}}/bio",
+							"host": [
+								"{{torre-service-url}}"
+							],
+							"path": [
+								"bio"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bio - Not Found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is an error\", function () {",
+									"   pm.response.to.have.status(500);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.to.have.property('result');",
+									"   pm.expect(res.result).to.to.have.property('error');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{torre-service-url}}/bio?username=ThisUsernameProbablyDoesntExists",
+							"host": [
+								"{{torre-service-url}}"
+							],
+							"path": [
+								"bio"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "ThisUsernameProbablyDoesntExists"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

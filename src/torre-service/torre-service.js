@@ -20,7 +20,7 @@ config.init('./config/config.json')
     config.version = version;
     return hydraExpress.init(config.getObject(), version, () => {
       hydraExpress.registerRoutes({
-        '/v1/torre': require('./routes/torre-v1-routes')
+        '/v1': require('./routes'),
       });
     });
   })
