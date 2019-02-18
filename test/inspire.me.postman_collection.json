@@ -130,7 +130,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{torre-service-url}}/bio?username=ThisUsernameProbablyDoesntExists",
+							"raw": "{{torre-service-url}}/bio?username=$ThisUsernameProbablyDoesntExists",
 							"host": [
 								"{{torre-service-url}}"
 							],
@@ -140,7 +140,138 @@
 							"query": [
 								{
 									"key": "username",
-									"value": "ThisUsernameProbablyDoesntExists"
+									"value": "$ThisUsernameProbablyDoesntExists"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "connections - Ok",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"   pm.response.to.have.status(200);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.have.property('result');",
+									"   pm.expect(res.result).to.be.an('array');",
+									"   pm.expect(res.result[0]).to.have.property('person');",
+									"   pm.expect(res.result[0].person).to.have.property('name');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{torre-service-url}}/connections?username=agurodriguez",
+							"host": [
+								"{{torre-service-url}}"
+							],
+							"path": [
+								"connections"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "agurodriguez"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "connections - Err",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is an error\", function () {",
+									"   pm.response.to.have.status(500);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.to.have.property('result');",
+									"   pm.expect(res.result).to.to.have.property('error');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{torre-service-url}}/connections",
+							"host": [
+								"{{torre-service-url}}"
+							],
+							"path": [
+								"connections"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "connections - Not Found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is an error\", function () {",
+									"   pm.response.to.have.status(500);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.to.have.property('result');",
+									"   pm.expect(res.result).to.to.have.property('error');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{torre-service-url}}/connections?username=$ThisUsernameProbablyDoesntExists",
+							"host": [
+								"{{torre-service-url}}"
+							],
+							"path": [
+								"connections"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "$ThisUsernameProbablyDoesntExists"
 								}
 							]
 						}

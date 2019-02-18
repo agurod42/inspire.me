@@ -33,8 +33,18 @@ api.get('/bio', async (req, res) => {
   }
 });
 
-api.get('connections', (req, res) => {
-  res.sendOk({ greeting: 'Welcome to Hydra Express!' });
+api.get('/connections', async (req, res) => {
+  if (!req.query.username) {
+    res.sendError('The username param is required');
+    return;
+  }
+
+  try {
+    res.sendOk(await controller.connections(req.query.username));
+  }
+  catch (err) {
+    res.sendError(err.message);
+  }
 });
 
 api.get('/', (req, res) => {
