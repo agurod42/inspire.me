@@ -21,7 +21,7 @@ let controller = new DataCourseraServiceController();
 
 api.get('/data', async (req, res) => {
   try {
-    res.sendOk(await controller.courses());
+    res.sendOk(await controller.courses((req.query.skills || '').split(',')));
   }
   catch (err) {
     res.sendError(err.message);

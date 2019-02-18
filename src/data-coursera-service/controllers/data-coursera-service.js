@@ -7,24 +7,58 @@ module.exports = class DataCourseraServiceController {
     }
 
     /**
-     * Returns the list of courses in Coursera 
+     * Returns the list of courses in Coursera scrapping the website.
+     * 
+     * @param {string[]} skills List of skills separated by comma.
+     *  
+     * @todo: This implementation should change to use the official Coursera API. Currently
+     * the scrapping method is being used because of the Afilliate Program requirement 
+     * (See https://building.coursera.org/developer-program)
      */
-    async courses() {
+    async courses(skills) {
         try {
-            const res = await scrapeIt(`${this.coursesPageUrl}`, {
-                courses: {
-                    listItem: '.ais-InfiniteHits-item',
-                    data: {
-                        url: {
-                            selector: '.rc-DesktopSearchCard',
-                            attr: 'href'
-                        },
-                        title: '.card-title',
-                        partnerName: '.partner-name',
-                    }
-                }
+            let courses = [];
+
+            const queryParams = [
+                'query=free courses',
+                'indices[test_all_products][refinementList][language][0]=English',
+                skills.map((skill, index) => `indices[test_all_products][refinementList][skills][${index}]=${skill}`).join('&')
+            ];
+            const queryUrl = encodeURI(`${this.coursesPageUrl}?${queryParams.join('&')}`);
+
+            const pageCountRes = await scrapeIt(queryUrl, { 
+                nav: { 
+                    listItem: '[aria-label="Pagination Controls"] ul li', data: { n: 'button' } 
+                } 
             });
-            return res.data;
+
+            // If there is no paginator then there are no results
+            if (!pageCountRes.data.nav[pageCountRes.data.nav.length - 2]) {
+                return [];
+            }
+
+            const pageCount = pageCountRes.data.nav[pageCountRes.data.nav.length - 2].n;
+
+            // Scrap no more than 10 pages at a time
+            for (var i = 1; i <= Math.min(pageCount, 10); i++) {
+                const partialQueryRes = await scrapeIt(`${queryUrl}&indices[test_all_products][page]=${i}`, {
+                    courses: {
+                        listItem: '.ais-InfiniteHits-item',
+                        data: {
+                            url: {
+                                selector: '.rc-DesktopSearchCard',
+                                attr: 'href',
+                                convert: (v) => `https://en.coursera.org/courses${v}`
+                            },
+                            title: '.card-title',
+                            partnerName: '.partner-name',
+                        }
+                    }
+                });
+                courses = courses.concat(partialQueryRes.data);
+            }
+
+            return courses;
         }
         catch (err) {
             throw new Error(err.response ? err.response.data.message : err);
