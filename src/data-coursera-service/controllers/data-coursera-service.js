@@ -55,7 +55,7 @@ module.exports = class DataCourseraServiceController {
                         }
                     }
                 });
-                courses = courses.concat(partialQueryRes.data);
+                courses = courses.concat(partialQueryRes.data.courses);
             }
 
             return courses;
