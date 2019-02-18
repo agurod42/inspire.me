@@ -9,6 +9,9 @@ class TorreSearchForm extends React.Component {
     return (
       <form onSubmit={this.props.handleSubmit}>
         <Field name='name' component={this.renderInput} />
+        <p align='right'>
+          <small>Powered by <img alt='Torre' src={require('@/assets/torre.png')} height={16} /></small>
+        </p>
       </form>
     );
   }

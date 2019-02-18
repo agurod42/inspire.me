@@ -22,7 +22,6 @@ class IndexPage extends React.Component {
     return (
       <Flex>
         <Box flex column w={1/3} align='center'>
-          <img alt='Powered by Torre' src={require('@/assets/torre.png')} />
           <TorreSearchForm onSubmit={form => this.props.people(form.name)} />
           <List
             dataSource={this.props.torrePeople || []}
@@ -56,7 +55,7 @@ class IndexPage extends React.Component {
           {Object.keys(this.props.inspireMeRes || {}).map(dataProvider => 
             <Card key={dataProvider} title={<span><Icon type={DATA_PROVIDERS[dataProvider].icon} /> {DATA_PROVIDERS[dataProvider].type} (by {DATA_PROVIDERS[dataProvider].title})</span>} style={{ marginBottom: 24 }}>
               <List
-                dataSource={this.props.inspireMeRes[dataProvider]}
+                dataSource={this.props.inspireMeRes[dataProvider].slice(0, 10)}
                 itemLayout='horizontal'
                 loading={this.props.inspireMeLoading}
                 renderItem={(item) => this.renderItem(dataProvider, item)}
