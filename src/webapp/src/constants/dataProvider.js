@@ -2,7 +2,7 @@ export const DATA_PROVIDERS = {
     'data-coursera-service': {
         type: 'Courses',
         title: 'Coursera',
-        icon: 'notebook'
+        icon: 'laptop'
     },
     'data-openlibrary-service': {
         type: 'Books',
