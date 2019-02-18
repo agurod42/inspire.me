@@ -25,7 +25,12 @@ api.get('/bio', async (req, res) => {
     return;
   }
 
-  res.sendOk(await controller.bio(req.query.username));
+  try {
+    res.sendOk(await controller.bio(req.query.username));
+  }
+  catch (err) {
+    res.sendError(err.message);
+  }
 });
 
 api.get('connections', (req, res) => {

@@ -7,9 +7,13 @@ module.exports = class TorreServiceController {
      * @param {string} username 
      */
     async bio(username) {
-        const res = await axios.get(`https://torre.bio/api/bios/${username}`);
-        console.log(res);
-        return res.data;
+        try {
+            const res = await axios.get(`https://torre.bio/api/bios/${username}`);
+            return res.data;
+        }
+        catch (err) {
+            throw new Error(err.response ? err.response.data.message : err);
+        }
     }
 
 }
