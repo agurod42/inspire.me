@@ -2,12 +2,6 @@
 
 [![Build Status](https://travis-ci.org/agurodriguez/inspire.me.svg?branch=master)](https://travis-ci.org/agurodriguez/inspire.me)
 
-## Run
-
-```
-npm start
-```
-
 ## Develop
 
 ### Architecture
@@ -55,3 +49,13 @@ Data Provider is the concept behind `data-*-service` micro-services. A Data Prov
             }
         }
         ```
+
+## Deploy
+
+Clone the repo in any service and run:
+
+```bash
+npm install
+# Set .env params
+npm start
+```
