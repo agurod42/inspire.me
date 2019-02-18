@@ -247,6 +247,105 @@
 			]
 		},
 		{
+			"name": "inspirer-service",
+			"item": [
+				{
+					"name": "inspire-me - Ok",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b7ce409-73d2-49dc-8df9-61c7c50b967c",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"   pm.response.to.have.status(200);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.have.property('result');",
+									"   pm.expect(res.result).to.be.an('array');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{inspire-me-url}}:8091/v1/inspire-me?subjects=software",
+							"host": [
+								"{{inspire-me-url}}"
+							],
+							"port": "8091",
+							"path": [
+								"v1",
+								"inspire-me"
+							],
+							"query": [
+								{
+									"key": "subjects",
+									"value": "software"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "inspire-me - Ok - multiple keywords",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2b7ce409-73d2-49dc-8df9-61c7c50b967c",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"   pm.response.to.have.status(200);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.have.property('result');",
+									"   pm.expect(res.result).to.be.an('array');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{inspire-me-url}}:8091/v1/inspire-me?subjects=software,technology",
+							"host": [
+								"{{inspire-me-url}}"
+							],
+							"port": "8091",
+							"path": [
+								"v1",
+								"inspire-me"
+							],
+							"query": [
+								{
+									"key": "subjects",
+									"value": "software,technology"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "torre-service",
 			"item": [
 				{

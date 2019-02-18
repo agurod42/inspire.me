@@ -47,6 +47,9 @@ services:
     image: node:10
     command: ./node_modules/.bin/nodemon start
     depends_on:
+      - data_coursera_service
+      - data_openlibrary_service
+      - data_ted_service
       - redis
     ports:
       - 8091:8081

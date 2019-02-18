@@ -13,9 +13,11 @@
     "node": ">=6.2.1"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "fwsp-config": "1.1.5",
-    "hydra-express": "1.7.0",
-    "fwsp-server-response": "2.2.6"
+    "fwsp-server-response": "2.2.6",
+    "hydra": "^1.7.0",
+    "hydra-express": "1.7.0"
   },
   "devDependencies": {
     "chai": "3.5.0",

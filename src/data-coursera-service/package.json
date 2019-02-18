@@ -15,6 +15,7 @@
   "dependencies": {
     "fwsp-config": "1.1.5",
     "fwsp-server-response": "2.2.6",
+    "hydra": "^1.7.0",
     "hydra-express": "1.7.0",
     "scrape-it": "^5.1.4"
   },
