@@ -52,7 +52,7 @@ Data Provider is the concept behind `data-*-service` micro-services. A Data Prov
 
 ## Deploy
 
-Clone the repo in any service and run:
+Clone the repo in any unix-based machine and run:
 
 ```bash
 npm install
