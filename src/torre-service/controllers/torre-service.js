@@ -36,4 +36,19 @@ module.exports = class TorreServiceController {
         }
     }
 
+    /**
+     * Returns people matching criteria `q`
+     * 
+     * @param {string} q 
+     */
+    async people(q) {
+        try {
+            const res = await axios.get(`${this.apiUrl}/people?q=${q || ''}`);
+            return res.data;
+        }
+        catch (err) {
+            throw new Error(err.response ? err.response.data.message : err);
+        }
+    }
+
 }

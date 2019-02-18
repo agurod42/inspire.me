@@ -277,6 +277,92 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "people - no filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"   pm.response.to.have.status(200);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.have.property('result');",
+									"   pm.expect(res.result).to.be.an('array');",
+									"   pm.expect(res.result[0]).to.have.property('publicId');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{torre-service-url}}/people",
+							"host": [
+								"{{torre-service-url}}"
+							],
+							"path": [
+								"people"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people - with filter",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is ok\", function () {",
+									"   pm.response.to.have.status(200);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.have.property('result');",
+									"   pm.expect(res.result).to.be.an('array');",
+									"   pm.expect(res.result[0]).to.have.property('publicId', 'torrenegra');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{torre-service-url}}/people?q=Torrenegra",
+							"host": [
+								"{{torre-service-url}}"
+							],
+							"path": [
+								"people"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "Torrenegra"
+								}
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}

@@ -47,8 +47,13 @@ api.get('/connections', async (req, res) => {
   }
 });
 
-api.get('/', (req, res) => {
-  res.sendOk({ greeting: 'Welcome to Hydra Express!' });
+api.get('/people', async (req, res) => {
+  try {
+    res.sendOk(await controller.people(req.query.q));
+  }
+  catch (err) {
+    res.sendError(err.message);
+  }
 });
 
 module.exports = api;
