@@ -43,8 +43,12 @@ module.exports = class TorreServiceController {
      */
     async people(q) {
         try {
+            let people = [];
             const res = await axios.get(`${this.apiUrl}/people?q=${q || ''}`);
-            return res.data;
+            for (var i in res.data) {
+                people.push((await axios.get(`${this.apiUrl}/bios/${res.data[i].publicId}`)).data);
+            }
+            return people;
         }
         catch (err) {
             throw new Error(err.response ? err.response.data.message : err);

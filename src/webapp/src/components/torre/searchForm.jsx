@@ -8,7 +8,7 @@ class TorreSearchForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.props.handleSubmit}>
-        <Field name='username' component={this.renderInput} />
+        <Field name='name' component={this.renderInput} />
       </form>
     );
   }

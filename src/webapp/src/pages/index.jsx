@@ -5,26 +5,26 @@ import { Box, Flex } from 'reflexbox';
 import TorreSearchForm from '@/components/torre/searchForm';
 import { DATA_PROVIDERS } from '@/constants/dataProvider';
 import { inspireMe } from '@/redux/inspirer/inspirer.actions';
-import { bio } from '@/redux/torre/torre.actions';
+import { people } from '@/redux/torre/torre.actions';
 
 const mapStateToProps = ({ inspirerReducer, torreReducer }) => ({
   inspireMeLoading: inspirerReducer.loading,
   inspireMeRes: inspirerReducer.inspireMeRes,
-  torreBio: torreReducer.torreBio,
+  torrePeople: torreReducer.torrePeople,
   torreLoading: torreReducer.loading,
 });
 
-@connect(mapStateToProps, { bio, inspireMe })
+@connect(mapStateToProps, { people, inspireMe })
 class IndexPage extends React.Component {
 
   render() {
     return (
       <Flex>
         <Box flex column w={1/3} align='center'>
-          <img src={require('@/assets/torre.png')} />
-          <TorreSearchForm onSubmit={form => this.props.bio(form.username)} />
+          <img alt='Powered by Torre' src={require('@/assets/torre.png')} />
+          <TorreSearchForm onSubmit={form => this.props.people(form.name)} />
           <List
-            dataSource={this.props.torreBio ? [this.props.torreBio] : []}
+            dataSource={this.props.torrePeople || []}
             itemLayout='horizontal'
             loading={this.props.torreLoading}
             renderItem={item => (
@@ -34,7 +34,7 @@ class IndexPage extends React.Component {
                   title={<a href={`https://torre.bio/${item.person.publicId}`} rel='noopener noreferrer' target='_blank'>{item.person.name}</a>}
                   description={item.person.professionalHeadline}
                 />
-                <Button disabled={this.props.inspireMeLoading} icon='bulb' onClick={() => this.props.inspireMe(this.props.torreBio)}>Get inspired</Button>
+                <Button disabled={this.props.inspireMeLoading} icon='bulb' onClick={() => this.props.inspireMe(item)}>Get inspired</Button>
               </List.Item>
             )}
           />
