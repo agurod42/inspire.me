@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, Icon, List } from 'antd';
+import { Avatar, Button, Card, List } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Box, Flex } from 'reflexbox';

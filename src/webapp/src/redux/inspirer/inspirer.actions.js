@@ -11,7 +11,7 @@ export function inspireMe(torreBio) {
         dispatch({ type: ACTIONS.INSPIRE_ME });
         try {
             const subjects = ['software'];
-            const res = await axios.get(`http://localhost:8091/v1/inspire-me?subjects=${subjects.join(',')}`);
+            const res = await axios.get(`${process.env.API_URL}:8091/v1/inspire-me?subjects=${subjects.join(',')}`);
             dispatch({ type: ACTIONS.INSPIRE_ME_SUCCESS, payload: res.data.result });
         }
         catch (err) {

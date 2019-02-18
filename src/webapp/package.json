@@ -2,10 +2,9 @@
   "private": true,
   "scripts": {
     "start": "umi dev",
-    "build": "umi build",
+    "build": "UMI_ENV=production umi build",
     "test": "umi test",
-    "lint": "eslint --ext .js src mock tests",
-    "precommit": "lint-staged"
+    "lint": "eslint --ext .js src mock tests"
   },
   "dependencies": {
     "antd": "^3.12.1",
@@ -31,12 +30,6 @@
     "react-test-renderer": "^16.7.0",
     "umi": "^2.4.2",
     "umi-plugin-react": "^1.4.0"
-  },
-  "lint-staged": {
-    "*.{js,jsx}": [
-      "eslint --fix",
-      "git add"
-    ]
   },
   "engines": {
     "node": ">=8.0.0"

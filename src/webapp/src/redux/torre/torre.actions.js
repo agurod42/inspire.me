@@ -10,7 +10,7 @@ export function bio(username) {
     return async (dispatch) => {
         dispatch({ type: ACTIONS.TORRE_BIO });
         try {
-            const res = await axios.get(`http://localhost:8090/v1/bio?username=${username}`);
+            const res = await axios.get(`${process.env.API_URL}:8090/v1/bio?username=${username}`);
             dispatch({ type: ACTIONS.TORRE_BIO_SUCCESS, payload: res.data.result });
         }
         catch (err) {

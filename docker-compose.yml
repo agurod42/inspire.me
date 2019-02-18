@@ -71,6 +71,14 @@ services:
       - ./src/torre-service:/home/node/app
     working_dir: /home/node/app
 
+  webapp:
+    container_name: ime_webapp
+    image: nginx:latest
+    ports:
+      - 8080:80
+    volumes:
+      - ./src/webapp/dist:/usr/share/nginx/html
+
   redis:
     container_name: ime_redis
     image: redis:latest
