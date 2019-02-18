@@ -12,7 +12,7 @@ module.exports = class InspirerServiceController {
      * @param {string[]} subjects
      */
     async inspireMe(subjects) {
-        let result = [];
+        let result = {};
 
         const ks = Object.keys(this.dataProviderServices);
         for (let i = 0; i < ks.length; i++) {
@@ -21,7 +21,7 @@ module.exports = class InspirerServiceController {
                 try {
                     const res = await axios.get(`http://${dataProviderService.ip}:${dataProviderService.port}/v1/data?subject=${subjects[j]}`);
                     if (res.data.result.length) {
-                        result = [...result, ...res.data.result];
+                        result[ks[i]] = [...(result[ks[i]] || []), ...res.data.result];
                     }
                 }
                 catch (err) {

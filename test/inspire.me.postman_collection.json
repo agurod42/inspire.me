@@ -262,7 +262,9 @@
 									"   pm.response.to.be.json;",
 									"   const res = pm.response.json();",
 									"   pm.expect(res).to.have.property('result');",
-									"   pm.expect(res.result).to.be.an('array');",
+									"   pm.expect(res.result).to.have.property('data-coursera-service');",
+									"   pm.expect(res.result).to.have.property('data-openlibrary-service');",
+									"   pm.expect(res.result).to.have.property('data-ted-service');",
 									"});"
 								],
 								"type": "text/javascript"
@@ -309,7 +311,9 @@
 									"   pm.response.to.be.json;",
 									"   const res = pm.response.json();",
 									"   pm.expect(res).to.have.property('result');",
-									"   pm.expect(res.result).to.be.an('array');",
+									"   pm.expect(res.result).to.have.property('data-coursera-service');",
+									"   pm.expect(res.result).to.have.property('data-openlibrary-service');",
+									"   pm.expect(res.result).to.have.property('data-ted-service');",
 									"});"
 								],
 								"type": "text/javascript"
