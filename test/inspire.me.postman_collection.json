@@ -37,7 +37,7 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "{{inspire-me-url}}:8180/v1/data?skills=Data Analysis",
+							"raw": "{{inspire-me-url}}:8180/v1/data?subject=Data Analysis",
 							"host": [
 								"{{inspire-me-url}}"
 							],
@@ -48,7 +48,7 @@
 							],
 							"query": [
 								{
-									"key": "skills",
+									"key": "subject",
 									"value": "Data Analysis"
 								}
 							]
