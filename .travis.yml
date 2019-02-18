@@ -4,4 +4,4 @@ nodejs:
 install:
   - npm install
 script:
-  - node_modules/.bin/newman run $TRAVIS_BUILD_DIR/test/inspire.me.postman_collection.json --color auto --disable-unicode --global-var "torre-service-url=https://ec2-54-209-252-217.compute-1.amazonaws.com:8090"
+  - node_modules/.bin/newman run $TRAVIS_BUILD_DIR/test/inspire.me.postman_collection.json --color auto --disable-unicode --global-var "torre-service-url=http://ec2-54-209-252-217.compute-1.amazonaws.com:8090/v1"
