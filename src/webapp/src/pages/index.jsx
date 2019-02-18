@@ -1,4 +1,4 @@
-import { Avatar, Button, Card, List } from 'antd';
+import { Avatar, Button, Card, Icon, List } from 'antd';
 import React from 'react';
 import { connect } from 'react-redux';
 import { Box, Flex } from 'reflexbox';
@@ -38,22 +38,27 @@ class IndexPage extends React.Component {
           />
         </Box>
         <Box px={24} w={2/3}>
-          <Card>
-            <List
-              dataSource={this.props.inspireMeRes || []}
-              itemLayout='horizontal'
-              loading={this.props.inspireMeLoading}
-              renderItem={item => (
-                <List.Item>
-                  <List.Item.Meta
-                    avatar={<Avatar src={'https://picsum.photos/200'} />}
-                    title={<a href="https://ant.design">{item.title}</a>}
-                    description={item.parterName}
-                  />
-                </List.Item>
-              )}
-            />
-          </Card>
+          {!this.props.inspireMeRes && this.props.inspireMeLoading && 
+            <List loading />
+          }
+          {Object.keys(this.props.inspireMeRes || {}).map(dataProvider => 
+            <Card key={dataProvider} title={dataProvider} style={{ marginBottom: 24 }}>
+              <List
+                dataSource={this.props.inspireMeRes[dataProvider]}
+                itemLayout='horizontal'
+                loading={this.props.inspireMeLoading}
+                renderItem={item => (
+                  <List.Item>
+                    <List.Item.Meta
+                      avatar={<Avatar src={'https://picsum.photos/200'} />}
+                      title={<a href="https://ant.design">{item.title}</a>}
+                      description={item.parterName}
+                    />
+                  </List.Item>
+                )}
+              />
+            </Card>
+          )}
         </Box>
       </Flex>
     );
