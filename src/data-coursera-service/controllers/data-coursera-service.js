@@ -7,22 +7,22 @@ module.exports = class DataCourseraServiceController {
     }
 
     /**
-     * Returns the list of courses in Coursera scrapping the website.
+     * Returns the list of courses in Coursera related to a subject.
      * 
-     * @param {string[]} skills List of skills separated by comma.
+     * @param {string} subject.
      *  
      * @todo: This implementation should change to use the official Coursera API. Currently
      * the scrapping method is being used because of the Afilliate Program requirement 
      * (See https://building.coursera.org/developer-program)
      */
-    async courses(skills) {
+    async courses(subject) {
         try {
             let courses = [];
 
             const queryParams = [
                 'query=free courses',
                 'indices[test_all_products][refinementList][language][0]=English',
-                skills.map((skill, index) => `indices[test_all_products][refinementList][skills][${index}]=${skill}`).join('&')
+                `indices[test_all_products][refinementList][skills][0]=${subject}`
             ];
             const queryUrl = encodeURI(`${this.coursesPageUrl}?${queryParams.join('&')}`);
 

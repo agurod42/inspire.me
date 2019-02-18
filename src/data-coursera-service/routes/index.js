@@ -20,8 +20,13 @@ let api = express.Router();
 let controller = new DataCourseraServiceController();
 
 api.get('/data', async (req, res) => {
+  if (!req.query.subject) {
+    res.sendError('The subject param is required');
+    return;
+  }
+  
   try {
-    res.sendOk(await controller.courses((req.query.skills || '').split(',')));
+    res.sendOk(await controller.courses((req.query.subject || '').split(',')));
   }
   catch (err) {
     res.sendError(err.message);
