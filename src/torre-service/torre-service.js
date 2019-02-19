@@ -1,16 +1,15 @@
 /**
 * @name Torre
 * @summary Torre Hydra Express service entry point
-* @description 
+* @description
 */
-'use strict';
 
-const version = require('./package.json').version;
+
 const hydraExpress = require('hydra-express');
 
 
-
-let config = require('fwsp-config');
+const config = require('fwsp-config');
+const { version } = require('./package.json');
 
 /**
 * Load configuration file and initialize hydraExpress app

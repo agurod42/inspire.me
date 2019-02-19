@@ -1,17 +1,16 @@
 /**
 * @name Data-openlibrary
 * @summary Data-openlibrary Hydra Express service entry point
-* @description 
+* @description
 */
-'use strict';
 
-const version = require('./package.json').version;
+
 const hydra = require('hydra');
 const hydraExpress = require('hydra-express');
 
 
-
-let config = require('fwsp-config');
+const config = require('fwsp-config');
+const { version } = require('./package.json');
 
 /**
 * Load configuration file and initialize hydraExpress app
@@ -22,18 +21,16 @@ config
     config.version = version;
     return hydraExpress.init(config.getObject(), version, () => {
       hydraExpress.registerRoutes({
-        '/v1': require('./routes')
+        '/v1': require('./routes'),
       });
     });
   })
-  .then(serviceInfo => {
+  .then((serviceInfo) => {
     const c = config.getObject();
     return hydra.init({ ...c, hydra: { ...c.hydra, ...serviceInfo } });
   })
-  .then(() => {
-    return hydra.registerService();
-  })
-  .then(serviceInfo => {
+  .then(() => hydra.registerService())
+  .then((serviceInfo) => {
     console.log('serviceInfo', serviceInfo);
   })
   .catch(err => console.log('err', err));

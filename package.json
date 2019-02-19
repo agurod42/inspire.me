@@ -2,6 +2,13 @@
   "name": "inspire.me",
   "version": "0.0.1",
   "description": "",
+  "author": "agurodriguez",
+  "license": "MIT",
+  "homepage": "https://github.com/agurodriguez/inspire.me#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agurodriguez/inspire.me.git"
+  },
   "scripts": {
     "install": "ls src/ | xargs -I {} bash -c \"cd 'src/{}' && npm install\"",
     "postinstall": "rsync -a -v --ignore-existing .env.sample .env",
@@ -9,18 +16,13 @@
     "start": "docker-compose up",
     "test": "./node_modules/.bin/newman run ./test/inspire.me.postman_collection.json --color auto --disable-unicode --global-var \"inspire-me-url=http://localhost\""
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/agurodriguez/inspire.me.git"
-  },
-  "author": "agurodriguez",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/agurodriguez/inspire.me/issues"
-  },
-  "homepage": "https://github.com/agurodriguez/inspire.me#readme",
   "devDependencies": {
     "chai": "^4.2.0",
+    "eslint": "^5.14.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.12.4",
     "mocha": "^5.2.0",
     "newman": "^4.3.1"
   }
