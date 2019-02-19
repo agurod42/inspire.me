@@ -1,6 +1,6 @@
 # inspire.me
 
-[![Build Status](https://travis-ci.org/agurodriguez/inspire.me.svg?branch=master)](https://travis-ci.org/agurodriguez/inspire.me) [![StandardJS](https://img.shields.io/badge/code--style-ESLint-%23f1e05a.svg)](https://eslint.org/docs/rules/)
+[![Build Status](https://travis-ci.org/agurodriguez/inspire.me.svg?branch=master)](https://travis-ci.org/agurodriguez/inspire.me) [![StandardJS](https://img.shields.io/badge/code--style-airbnb-%23f1e05a.svg)](https://github.com/airbnb/javascript)
 
 ## Develop
 

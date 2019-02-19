@@ -6,10 +6,10 @@ module.exports = class DataTedServiceController {
   }
 
   /**
-     * Returns the list of TED talks given a `subject`.
-     *
-     * @param {string} subject
-     */
+   * Returns the list of TED talks given a `subject`.
+   *
+   * @param {string} subject
+   */
   async talks(subject) {
     try {
       const res = await axios.get(`${this.apiUrl}/talksByDescription?description=${subject}`, { headers: { 'X-RapidAPI-Key': process.env.DATA_TED_API_KEY } });

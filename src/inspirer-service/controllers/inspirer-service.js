@@ -6,10 +6,10 @@ module.exports = class InspirerServiceController {
   }
 
   /**
-     * Returns a list of books, courses and talks given a list of `subjects`.
-     *
-     * @param {string[]} subjects
-     */
+   * Returns a list of books, courses and talks given a list of `subjects`.
+   *
+   * @param {string[]} subjects
+   */
   async inspireMe(subjects) {
     const result = {};
 

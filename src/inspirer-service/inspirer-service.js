@@ -1,8 +1,8 @@
 /**
-* @name Inspirer
-* @summary Inspirer Hydra Express service entry point
-* @description
-*/
+ * @name Inspirer
+ * @summary Inspirer Hydra Express service entry point
+ * @description
+ */
 
 
 const hydra = require('hydra');
@@ -19,8 +19,8 @@ const dataProviderServices = [
 ];
 
 /**
-* Load configuration file and initialize hydraExpress app
-*/
+ * Load configuration file and initialize hydraExpress app
+ */
 (async function () {
   try {
     await config.init('./config/config.json');

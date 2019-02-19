@@ -1,8 +1,8 @@
 /**
-* @name Data-openlibrary
-* @summary Data-openlibrary Hydra Express service entry point
-* @description
-*/
+ * @name Data-openlibrary
+ * @summary Data-openlibrary Hydra Express service entry point
+ * @description
+ */
 
 
 const hydra = require('hydra');
@@ -13,8 +13,8 @@ const config = require('fwsp-config');
 const { version } = require('./package.json');
 
 /**
-* Load configuration file and initialize hydraExpress app
-*/
+ * Load configuration file and initialize hydraExpress app
+ */
 config
   .init('./config/config.json')
   .then(() => {

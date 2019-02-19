@@ -1,8 +1,8 @@
 /**
-* @name Data-coursera
-* @summary Data-coursera Hydra Express service entry point
-* @description
-*/
+ * @name Data-coursera
+ * @summary Data-coursera Hydra Express service entry point
+ * @description
+ */
 
 
 const hydra = require('hydra');

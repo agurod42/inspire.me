@@ -6,10 +6,10 @@ module.exports = class TorreServiceController {
   }
 
   /**
-     * Returns the Torre Bio
-     *
-     * @param {string} username
-     */
+   * Returns the Torre Bio
+   *
+   * @param {string} username
+   */
   async bio(username) {
     try {
       const res = await axios.get(`${this.apiUrl}/bios/${username}`);
@@ -20,10 +20,10 @@ module.exports = class TorreServiceController {
   }
 
   /**
-     * Returns the connections of a Torre Bio
-     *
-     * @param {string} username
-     */
+   * Returns the connections of a Torre Bio
+   *
+   * @param {string} username
+   */
   async connections(username) {
     try {
       const res = await axios.get(`${this.apiUrl}/people/${username}/connections`);
@@ -34,10 +34,10 @@ module.exports = class TorreServiceController {
   }
 
   /**
-     * Returns people matching criteria `q`
-     *
-     * @param {string} q
-     */
+   * Returns people matching criteria `q`
+   *
+   * @param {string} q
+   */
   async people(q) {
     try {
       const people = [];
