@@ -3,9 +3,12 @@ node_js:
   - "8"
 install:
   - npm install
+stages:
+  -lint
+  -test
 jobs:
   include:
-    - stage: Lint
+    - stage: lint
       script:
         - ./node_modules/.bin/eslint -c ./.eslintrc.js src/data-coursera-service
         - ./node_modules/.bin/eslint -c ./.eslintrc.js src/data-openlibrary-service
@@ -13,6 +16,6 @@ jobs:
         - ./node_modules/.bin/eslint -c ./.eslintrc.js src/inspirer-service
         - ./node_modules/.bin/eslint -c ./.eslintrc.js src/torre-service
         - ./node_modules/.bin/eslint -c ./.eslintrc.js src/webapp
-    - stage: Tests
+    - stage: test
       script:
         - ./node_modules/.bin/newman run $TRAVIS_BUILD_DIR/test/inspire.me.postman_collection.json --color auto --disable-unicode --global-var "inspire-me-url=http://ec2-54-209-252-217.compute-1.amazonaws.com"
