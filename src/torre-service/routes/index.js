@@ -48,6 +48,11 @@ api.get('/connections', async (req, res) => {
 });
 
 api.get('/people', async (req, res) => {
+  if (!req.query.q) {
+    res.sendError('The q param is required');
+    return;
+  }
+
   try {
     res.sendOk(await controller.people(req.query.q));
   }

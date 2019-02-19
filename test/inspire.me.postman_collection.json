@@ -635,49 +635,7 @@
 					"response": []
 				},
 				{
-					"name": "people - no filter",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
-								"exec": [
-									"pm.test(\"response is ok\", function () {",
-									"   pm.response.to.have.status(200);",
-									"   pm.response.to.be.json;",
-									"   const res = pm.response.json();",
-									"   pm.expect(res).to.have.property('result');",
-									"   pm.expect(res.result).to.be.an('array');",
-									"   pm.expect(res.result[0]).to.have.property('publicId');",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "{{inspire-me-url}}:8090/v1/people",
-							"host": [
-								"{{inspire-me-url}}"
-							],
-							"port": "8090",
-							"path": [
-								"v1",
-								"people"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "people - with filter",
+					"name": "people - Ok",
 					"event": [
 						{
 							"listen": "test",
@@ -720,6 +678,47 @@
 									"key": "q",
 									"value": "Torrenegra"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "people - Err",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "497a1145-2a0a-46aa-b5a6-3e15763b2aa3",
+								"exec": [
+									"pm.test(\"response is an error\", function () {",
+									"   pm.response.to.have.status(500);",
+									"   pm.response.to.be.json;",
+									"   const res = pm.response.json();",
+									"   pm.expect(res).to.to.have.property('result');",
+									"   pm.expect(res.result).to.to.have.property('error');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{inspire-me-url}}:8090/v1/people",
+							"host": [
+								"{{inspire-me-url}}"
+							],
+							"port": "8090",
+							"path": [
+								"v1",
+								"people"
 							]
 						}
 					},
