@@ -93,7 +93,7 @@ class IndexPage extends React.Component {
         return (
           <List.Item>
             <List.Item.Meta
-              avatar={<Avatar shape='square' size='large' src={item.thumbnail_url} />}
+              avatar={<Avatar shape='square' size='large' src={`https://img.youtube.com/vi/${item.youTubeID}/0.jpg`} />}
               title={<a href={item.talk_url} rel='noopener noreferrer' target='_blank'>{item.name}</a>}
               description={item.speaker}
             />
