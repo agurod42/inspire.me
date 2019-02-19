@@ -3,7 +3,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Box, Flex } from 'reflexbox';
 import TorreSearchForm from '@/components/torre/searchForm';
-import { DATA_PROVIDERS } from '@/constants/dataProvider';
+import DATA_PROVIDERS from '@/constants/dataProvider';
 import { inspireMe } from '@/redux/inspirer/inspirer.actions';
 import { people } from '@/redux/torre/torre.actions';
 

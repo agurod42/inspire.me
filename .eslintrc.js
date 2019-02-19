@@ -8,5 +8,14 @@ module.exports = {
         "no-console": "off",
         "no-plusplus": "off",
         "no-return-await": "off",
+    },
+    "settings": {
+        "import/resolver": {
+            "alias": {
+                "map": [
+                    ['@', './src/webapp/src']
+                ]
+            }
+        }
     }
 };
